@@ -9,7 +9,7 @@ function App() {
       RANDOM GIFS
     </h1>
 
-    <div className="flex flex-col w-full items-center gap-y-10 mt-[150px]">
+    <div className="flex flex-col w-full items-center gap-y-10 mt-[100px]">
       <Random/>
 
       <Tag/>

@@ -4,7 +4,7 @@
 
 /* css background-image generated using https://10015.io/tools/css-background-pattern-generator */
 .background {
-  background-image: radial-gradient(circle, #FBD6D2, #F190B7, #CE49BF, #A63EC5);
+  background-image: linear-gradient(to bottom,  #0D92F4, #FF4E88, #F9F54B , #0D92F4);
   /* background-size: 2px 2px; */
   /* background-position: 0 0, 18px 18px; */
   /* background-color: #365486; */
