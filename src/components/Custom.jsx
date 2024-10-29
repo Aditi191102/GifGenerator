@@ -5,11 +5,12 @@ import Spinner from "./Spinner";
 function Custom(){
 
     const [customGif,setCustomGif] = useState('');
+    const [tag,setTag] = useState('');
     const [imgLoading,setImgLoading] = useState(false);
 
     async function customGifGenerator(){
         setImgLoading(true);
-        // const {data} = await axios.get(`https://api.giphy.com/v1/gifs/random?api_key=${'GXNBue0Bmu2t2rjM7YNYqCJVWgK5LCxI'}`);
+        // const {data} = await axios.get(`https://api.giphy.com/v1/gifs/random?api_key=${'GXNBue0Bmu2t2rjM7YNYqCJVWgK5LCxI'}&tag=${tag}`);
         // const dataFound = data.data.images.downsized_large.url;
         // setCustomGif(dataFound);
         // console.log(data);
@@ -19,6 +20,10 @@ function Custom(){
     useEffect(()=>{
         customGifGenerator();
     },[])
+
+    function changeHandler(event){
+        setTag(event.target.value);
+    }
 
     function clickHandler(){
 
@@ -33,9 +38,13 @@ function Custom(){
                 imgLoading ? (<Spinner/>) : ( <img src={customGif} className="bg-black mt-10" alt="customGif" width="150" height="150"></img>)
             }
 
-           
+            <input className="rounded-md w-[50%] mt-2 border border-black text-xl text-center"
+            placeholder="Gif-name here"
+            onChange={changeHandler}
+            value={tag}>
+            </input>
 
-            <button className="rounded-md w-[50%] mt-10 mb-5 border border-black uppercase bg-yellow-400 text-xl"
+            <button className="rounded-md w-[50%] mt-5 mb-5 border border-black uppercase bg-yellow-400 text-xl"
             onClick={clickHandler}>Click Me</button>
         </div>
     )
