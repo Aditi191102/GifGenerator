@@ -1,29 +1,32 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Spinner from "./Spinner";
+import useGif from "../hooks/useGif";
 
 function Random(){
 
-    const [gif,setGif] = useState('');
-    const [loading,setLoading] = useState(false);
+    // const [gif,setGif] = useState('');
+    // const [loading,setLoading] = useState(false);
     
 
-    async function generateGif() {
-        setLoading(true);
-        // const url = https://api.giphy.com/v1/gifs/random?api_key=${gif_API};
-        // const {data} =  await axios.get(`https://api.giphy.com/v1/gifs/random?api_key=${'GXNBue0Bmu2t2rjM7YNYqCJVWgK5LCxI'}`);
-        // const sourceImg = data.data.images.downsized_large.url;
-        // setGif(sourceImg);
-        // setLoading(false);
-        // console.log(output);
-    }
+    // async function generateGif() {
+    //     setLoading(true);
+    //     // const url = https://api.giphy.com/v1/gifs/random?api_key=${gif_API};
+    //     // const {data} =  await axios.get(`https://api.giphy.com/v1/gifs/random?api_key=${'GXNBue0Bmu2t2rjM7YNYqCJVWgK5LCxI'}`);
+    //     // const sourceImg = data.data.images.downsized_large.url;
+    //     // setGif(sourceImg);
+    //     // setLoading(false);
+    //     // console.log(output);
+    // }
 
-    useEffect(()=>{
-        generateGif();
-    },[])
+    const {gif, loading, gifGenerator} = useGif();
+
+    // useEffect(()=>{
+    //     generateGif();
+    // },[])
 
     function clickHandler(){
-        generateGif();
+        gifGenerator();
     }
 
     return(
